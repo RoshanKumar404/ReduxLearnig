@@ -1,118 +1,59 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import Headerss from './ReduxFiles/Header';
+import Products from './ReduxFiles/Product';
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+export default function ReduxLearnings() {
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+  const productss = [{
+    name: "nothingphone",
+    color: "pink",
+    price: 4954,
+    image: "https://rukminim2.flixcart.com/image/850/1000/xif0q/mobile/h/i/x/-original-imagyr3vfpqrpkbv.jpeg?q=90&crop=false"
+  },
+  {
+    name: "iphone",
+    color: "green",
+    price: 49542,
+    image: "https://m.media-amazon.com/images/I/61KzWvYvUoL.jpg"
+  },{
+    name: "1+ phone",
+    color: "red",
+    price: 495,
+    image: "https://i5.walmartimages.com/asr/c367be99-ecb6-49e5-988b-807145f9f7ab.66500265bdd5a4c8140585fda64716f0.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"
+  },
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+
+]
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+    <View>
+      <Headerss />
+      <ScrollView>
+      
+      <Text style={Styles.text}>Bolo Jai Sri Ram</Text>
+      
+      {
+        productss.map((item)=> <Products item={item} />)
+      }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
+      
+      
       </ScrollView>
-    </SafeAreaView>
-  );
+    </View>
+
+  )
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+const Styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  text: {
+    color: "#e53a32",
+    fontSize: 36,
+    fontWeight: "bold",
   },
 });
-
-export default App;
